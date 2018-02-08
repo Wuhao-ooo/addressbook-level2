@@ -282,7 +282,7 @@
 || 3 persons listed!
 || ===================================================
 || Enter command: || [Command entered:  delete 1]
-|| Deleted Person: Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street, #01-01, 213000 Tags:
+|| Deleted Person: Adam Brown Phone: 111111 Email: adam@gmail.com Address: 111, alpha street, #01-01, 213000 Tags: 
 || ===================================================
 || Enter command: || [Command entered:  list]
 || 	1. Betsy Choo Tags: [secretive]
