@@ -5,6 +5,7 @@ import org.junit.Test;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.util.TestUtil;
 
 import java.util.*;
 
@@ -13,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 public class SortCommandTest {
 
     private AddressBook addressBook;
-    private List<Person> expectedList;
+    private List<Person> sortedList;
 
     @Before
     public void setUp() throws Exception {
@@ -27,19 +28,26 @@ public class SortCommandTest {
                 new Email("b@grant.com", false), new Address("44H Define Road", false),
                 new UniqueTagList());
 
-        addressBook = seedu.addressbook.util.TestUtil.createAddressBook(C, A, D, B);
-        expectedList = Arrays.asList(A, B, C, D);
+        addressBook = TestUtil.createAddressBook(C, A, D, B);
+        sortedList = Arrays.asList(A, B, C, D);
     }
 
     /**
      * Executes the command, and checks that the execution was what we had expected.
      */
     @Test
-    private void testSortCommand() throws Exception {
+    private void testSortCommand() throws Exception{
         SortCommand command = new SortCommand();
-        command.setData(addressBook, null);
-        command.execute();
-        List<Person> actualList = addressBook.getAllPersons().mutableListView();
-        assertTrue(actualList.equals(expectedList));
+        UniquePersonList actualList;
+        UniquePersonList expectedList;
+        try {
+            command.setData(addressBook, null);
+            command.execute();
+            actualList = addressBook.getAllPersons();
+            expectedList = new UniquePersonList(sortedList);
+            assertTrue(actualList.equals(expectedList));
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
