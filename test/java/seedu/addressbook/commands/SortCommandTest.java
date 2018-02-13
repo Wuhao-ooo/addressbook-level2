@@ -1,8 +1,7 @@
-package java.seedu.addressbook.commands;
+package seedu.addressbook.commands;
 
 import org.junit.Before;
 import org.junit.Test;
-import seedu.addressbook.commands.SortCommand;
 import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.UniqueTagList;
