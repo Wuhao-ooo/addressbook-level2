@@ -13,13 +13,13 @@ public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Displays all persons in the address book as a list with index numbers.\n"
+            + ": Sorts all persons in lexicographically by their names and lists to user. \n"
             + "Example: " + COMMAND_WORD;
 
 
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
-        return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
+        return new CommandResult(getMessageForPersonSortShownSummary(allPersons), allPersons);
     }
 }
