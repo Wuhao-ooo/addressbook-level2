@@ -38,16 +38,16 @@ public class SortCommandTest {
     @Test
     public void testSortCommand() throws Exception{
         SortCommand command = new SortCommand();
-        UniquePersonList actualList;
-        UniquePersonList expectedList;
+        UniquePersonList actualList = null;
+        UniquePersonList expectedList = null;
         try {
             command.setData(addressBook, null);
             command.execute();
             actualList = addressBook.getAllPersons();
             expectedList = new UniquePersonList(sortedList);
-            assertTrue(actualList.equals(expectedList));
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        assertTrue(actualList.equals(expectedList));
     }
 }
