@@ -35,7 +35,7 @@ public class SortCommandTest {
      * Executes the command, and checks that the execution was what we had expected.
      */
     @Test
-    private void testSortCommand() throws Exception {
+    public void testSortCommand() {
         SortCommand command = new SortCommand();
         command.setData(addressBook, null);
         command.execute();
