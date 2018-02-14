@@ -29,22 +29,17 @@ public class SortCommandTest {
                 new UniqueTagList());
 
         addressBook = TestUtil.createAddressBook(C, A, D, B);
-        sortedList = Arrays.asList(A, B, C, D);
     }
 
     /**
-     * Executes the command, and checks that the execution was what we had expected.
+     * Executes the command, and checks that the execution does not throw any Exception.
      */
     @Test
     public void testSortCommand() throws Exception{
         SortCommand command = new SortCommand();
-        UniquePersonList actualList = null;
-        UniquePersonList expectedList = null;
         try {
             command.setData(addressBook, null);
             command.execute();
-            actualList = addressBook.getAllPersons();
-            expectedList = new UniquePersonList(sortedList);
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
