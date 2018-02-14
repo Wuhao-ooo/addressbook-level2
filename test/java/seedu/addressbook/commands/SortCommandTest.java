@@ -14,7 +14,6 @@ import static org.junit.Assert.assertTrue;
 public class SortCommandTest {
 
     private AddressBook addressBook;
-    private List<Person> sortedList;
 
     @Before
     public void setUp() throws Exception {
