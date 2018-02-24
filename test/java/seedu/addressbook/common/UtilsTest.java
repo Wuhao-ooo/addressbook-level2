@@ -9,6 +9,26 @@ import java.util.List;
 import org.junit.Test;
 
 public class UtilsTest {
+    @Test
+    public void isAnyNull() throws Exception {
+        // Any non-empty list
+        assertFalse(Utils.isAnyNull(0, 0));
+        assertFalse(Utils.isAnyNull("test"));
+        assertFalse(Utils.isAnyNull(""));
+
+        // non empty list with just one null at the beginning
+        assertTrue(Utils.isAnyNull((Object) null));
+        assertTrue(Utils.isAnyNull(null, "", 0));
+        assertTrue(Utils.isAnyNull(null, 0, 0));
+
+        // non empty list with nulls in the middle
+        assertTrue(Utils.isAnyNull(1, null, null, "test"));
+        assertTrue(Utils.isAnyNull("", null, 1));
+
+        // non empty list with one null as the last element
+        assertTrue(Utils.isAnyNull("", 2, null));
+        assertTrue(Utils.isAnyNull(2, 2, null));
+    }
 
 
     @Test
